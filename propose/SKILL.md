@@ -271,9 +271,31 @@ The aesthetic is **a well-made editorial blog** — the kind a thoughtful design
 - **Respect the reader.** Comfortable measure (~40rem), real line-height, high contrast. The template's dark mode is a warm ink (not stark black); honor `prefers-reduced-motion`.
 - You may retune the accent hue, the dek, and the closing line to fit the topic — but keep the editorial restraint, the legibility, and the checklist contract unchanged.
 
+### Writing style: ASD-STE100 (Simplified Technical English)
+
+Write all prose in the proposal according to the principles of ASD-STE100:
+
+- Use simple, common words, each with one clear meaning. Prefer the shortest word that works.
+- Use the active voice and name the doer: "The parser rejects empty input," not "Empty input is rejected."
+- Use the present tense wherever possible.
+- Keep sentences short: at most 20 words for a list item or an instruction, at most 25 words for descriptive prose.
+- Write one instruction per sentence, and one topic per sentence.
+- Keep each paragraph to one topic and at most 6 sentences.
+- Use articles ("a", "the") and demonstratives ("this", "these") — do not drop them telegraphically.
+- Break up noun clusters of more than three nouns.
+- Use the same term for the same thing throughout the document — no elegant variation.
+- Use vertical lists in place of long, complex sentences.
+- Avoid idioms, slang, and unnecessary jargon.
+
+Exact technical names (types, functions, commands, file paths) are exempt from the vocabulary rules — always write them precisely. Quoted material is exempt too: reproduce an error message, a log line, or a code comment verbatim.
+
+STE and the editorial voice above are not in tension. STE governs the sentences; the voice governs the structure, the typography, and the point of view. A dek, a drop cap, and a strong opening paragraph all survive the rules — short, plain, active sentences still argue a position. Where the two pull against each other, clarity wins.
+
+The proposal is a document someone reads once and then approves or rejects. Every sentence they have to read twice is a defect.
+
 ### Implementation Checklist requirements
 
-Each item must be a concrete, verifiable step. **Organize using a red/green TDD cycle wherever applicable:**
+Each item must be a concrete, verifiable step, written as one instruction in at most 20 words. **Organize using a red/green TDD cycle wherever applicable:**
 
 1. Write or modify a test that captures the desired behavior
 2. Run the test — confirm it fails for the right reason (compile error is acceptable if production code doesn't exist yet)
@@ -345,12 +367,13 @@ Brief each critic to:
 - Read the research document if one exists.
 - Return a prioritized punch list under 400 words. Each item: what's wrong, where in the proposal, and what would be better.
 - Push back hard. The proposal is a draft — they're not being polite, they're stress-testing it.
+- Flag prose that breaks the ASD-STE100 rules: sentences over 25 words, passive voice with no named doer, inconsistent terms for one thing, noun stacks, checklist items over 20 words.
 
 Use `subagent_type: "general-purpose"` for both.
 
 ## Step 4 — Revise
 
-Apply valid critiques. If two critics disagree, exercise judgment — prefer the one with more specific evidence. If a critique would meaningfully change the approach, briefly note it in `Trade-offs & Risks` so the user can see what was considered.
+Apply valid critiques. Write every revision in ASD-STE100, the same as the draft. If two critics disagree, exercise judgment — prefer the one with more specific evidence. If a critique would meaningfully change the approach, briefly note it in `Trade-offs & Risks` so the user can see what was considered.
 
 One critic round is enough before showing the user. Do not loop — the user is the next reviewer.
 
@@ -359,6 +382,8 @@ One critic round is enough before showing the user. Do not loop — the user is 
 Tell the user where the proposal was written, summarize the critic findings you incorporated (and any you rejected, briefly), and ask them to review.
 
 ## Step 6 — Iterate
+
+Write all new or revised prose in ASD-STE100, the same as the draft.
 
 **In-session feedback** — if the user types corrections in chat, update the proposal document, do **not** start implementing, and repeat until they explicitly approve.
 

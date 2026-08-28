@@ -48,6 +48,26 @@ Collect the agents' reports and write a draft document at:
 4. **Open Questions** — things that remain unclear and should be resolved during planning.
 5. **References** — external docs, files, or prior decisions consulted.
 
+### Writing style: ASD-STE100 (Simplified Technical English)
+
+Write all prose in the research document according to the principles of ASD-STE100:
+
+- Use simple, common words, each with one clear meaning. Prefer the shortest word that works.
+- Use the active voice and name the doer: "The parser rejects empty input," not "Empty input is rejected."
+- Use the present tense wherever possible.
+- Keep sentences short: at most 20 words for a list item or an instruction, at most 25 words for descriptive prose.
+- Write one instruction per sentence, and one topic per sentence.
+- Keep each paragraph to one topic and at most 6 sentences.
+- Use articles ("a", "the") and demonstratives ("this", "these") — do not drop them telegraphically.
+- Break up noun clusters of more than three nouns.
+- Use the same term for the same thing throughout the document — no elegant variation.
+- Use vertical lists in place of long, complex sentences.
+- Avoid idioms, slang, and unnecessary jargon.
+
+Exact technical names (types, functions, commands, file paths) are exempt from the vocabulary rules — always write them precisely. Quoted material is exempt too: reproduce an error message, a log line, or a code comment verbatim.
+
+The research document records facts. Plain, short, active sentences make a claim easy to check against the file it cites. Do not trade that for a nicer turn of phrase.
+
 ## Step 4 — Critic pass
 
 Spawn one critic agent with the draft document. Brief it to:
@@ -55,6 +75,7 @@ Spawn one critic agent with the draft document. Brief it to:
 - Flag findings that don't cite a file path or line number.
 - Call out anything that reads like a recommendation rather than a fact (this is a research doc, not a proposal).
 - Push back on conclusions that feel premature or under-evidenced.
+- Flag prose that breaks the ASD-STE100 rules above: sentences over 25 words, passive voice with no named doer, inconsistent terms for one thing, noun stacks.
 - Return a punch list — under 300 words, prioritized by severity.
 
 Use `subagent_type: "general-purpose"` and pass the draft path so the critic can read the full file.

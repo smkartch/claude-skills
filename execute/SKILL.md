@@ -90,6 +90,29 @@ Report the gate results alongside the phase summary, with the numbers. If a crit
 
 Skip the gate for phases that touched no Go code, and say that's why.
 
+## Writing style: ASD-STE100 (Simplified Technical English)
+
+You write prose during execution: commit messages, phase reports, code comments, and any text you add to the proposal. Write all of it according to the principles of ASD-STE100:
+
+- Use simple, common words, each with one clear meaning. Prefer the shortest word that works.
+- Use the active voice and name the doer: "The parser rejects empty input," not "Empty input is rejected."
+- Use the present tense wherever possible.
+- Keep sentences short: at most 20 words for a list item or an instruction, at most 25 words for descriptive prose.
+- Write one instruction per sentence, and one topic per sentence.
+- Keep each paragraph to one topic and at most 6 sentences.
+- Use articles ("a", "the") and demonstratives ("this", "these") — do not drop them telegraphically.
+- Break up noun clusters of more than three nouns.
+- Use the same term for the same thing throughout the document — no elegant variation.
+- Use vertical lists in place of long, complex sentences.
+- Avoid idioms, slang, and unnecessary jargon.
+
+Exact technical names (types, functions, commands, file paths) are exempt from the vocabulary rules — always write them precisely. Quoted material is exempt too: reproduce an error message, a log line, or a code comment verbatim.
+
+Two places where this matters most:
+
+- **Commit messages.** Name the doer and say what the commit does, in the present tense: "Extract FooParser from Handler," not "FooParser was extracted." Keep the subject line under 20 words.
+- **Code comments.** You already write few of them. Make each one a single short sentence that says why the code is not obvious.
+
 ## When you finish
 
 Report which checklist items were completed, note any deviations from the proposal (and why), and flag anything that should be cleaned up or followed up on.
